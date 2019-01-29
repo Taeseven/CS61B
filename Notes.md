@@ -19,3 +19,12 @@ Lecture Notes
    and the return value of the function must have a declared type.
    Functions in Java return only one value!
 * Functions must have a return type. If a function does not return anything, we use void.
+
+------------------------------------------
+# Intro, Hello World Java
+* **Static VS. Instance methods**  
+    - Instance methods are actions that can only be taken by an instance of the class (i.e. a specific object), whereas static methods are taken by the class itself. An instance method is invoked using a reference to a specific instance, e.g. d.bark(), whereas static methods should be invoked using the class name, e.g. Math.sqrt(). 
+* **Static variables**  
+    - Variables can also be static. Static variables should be accessed using the class name, e.g. Dog.binomen as opposed to d.binomen.  
+* **'this'**  
+    - Inside a method, we can use the **this** keyword to refer to the current instance. This is equivalent to **self** in Python.  
