@@ -28,3 +28,12 @@ Lecture Notes
     - Variables can also be static. Static variables should be accessed using the class name, e.g. Dog.binomen as opposed to d.binomen.  
 * **'this'**  
     - Inside a method, we can use the **this** keyword to refer to the current instance. This is equivalent to **self** in Python.  
+
+------------------------------------------
+# Lists
+> * **Primitive Types**: byte, short, int, long, float, double, boolean, and char.
+> * **Reference Type**: If a variable is not a primitive type, then it is a reference type. When we declare object variables, we use reference type variables to store the location in memory of where an object is located. Remember this is what the constructor returns. A reference type is always a box of size 64 bits. Note that the variable does not store the entire object itself!  
+> * **Golden Rule of Equals**: when we assign a value with equals, we are just copying the bits from one memory box to another!  
+
+## IntList
+
