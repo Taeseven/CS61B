@@ -35,5 +35,15 @@ Lecture Notes
 > * **Reference Type**: If a variable is not a primitive type, then it is a reference type. When we declare object variables, we use reference type variables to store the location in memory of where an object is located. Remember this is what the constructor returns. A reference type is always a box of size 64 bits. Note that the variable does not store the entire object itself!  
 > * **Golden Rule of Equals**: when we assign a value with equals, we are just copying the bits from one memory box to another!  
 
-## IntList
+## SLLists
+* **Private**
+    - prevents code in other classes from accessing(while the code inside the class can still do so).  
+* **Nested Classes**  
+    - move classes into classes to make nested classes.  
+* **Static Nested Classed**  
+    - If the IntNode class never uses any variable or method of the SLList class, we can turn this class static by adding the “static” keyword.
+* **Invariants**
+    - An invariant is a fact about a data structure that is guaranteed to be true.
+
+
 
