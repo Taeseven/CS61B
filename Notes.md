@@ -37,13 +37,53 @@ Lecture Notes
 
 ## SLLists
 * **Private**
-    - prevents code in other classes from accessing(while the code inside the class can still do so).  
+> - prevents code in other classes from accessing(while the code inside the class can still do so).  
 * **Nested Classes**  
-    - move classes into classes to make nested classes.  
+> - move classes into classes to make nested classes.  
 * **Static Nested Classed**  
-    - If the IntNode class never uses any variable or method of the SLList class, we can turn this class static by adding the “static” keyword.
+> - If the IntNode class never uses any variable or method of the SLList class, we can turn this class static by adding the “static” keyword.
 * **Invariants**
-    - An invariant is a fact about a data structure that is guaranteed to be true.
+> - An invariant is a fact about a data structure that is guaranteed to be true.
 
+## DLList  
+> give each IntNode a prev pointer, pointing to the previous item. This creates a doubly-linked list.(two sentinel nodes or circular sentinel).
 
+* **Generic DDList**  
+```java 
+public class DLList<T> {...}
+```  
+> **T** is a placeholder object type.  
+
+If we now want to create a DLList holding String objects, then we must say:
+```java
+DLList<String> list = new DLList<>("bone");
+```
+
+## Arrays  
+> Arrays do not have methods!  
+
+* **Instantiating Arrays**  
+```java
+int[] y = new int[3];
+int[] x = new int[]{1, 2, 3, 4, 5};
+int[] w = {1, 2, 3, 4, 5};
+```
+
+* **Arraycopy**
+```java
+System.arraycopy(b, 0, x, 3, 2);
+```
+
+> - Source array: **b**;  
+> - Start position in source: **b[0]**;
+> - Target array: **x**;
+> - Start position in target: **x[3]**;
+> - Number to copy: **2**
+
+* **Arrays vs. Classes**  
+> - Both are used to organize a bunch of memory.
+> - Both have a fixed number of “boxes”.
+> - Arrays are accessed via square bracket notation. Classes are accessed via dot notation.
+> - Elements in the array must be all be the same type. Elements in a class may be of different types.
+> - Array indices are computed at runtime. We cannot compute class member variable names.
 
