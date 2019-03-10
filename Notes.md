@@ -87,3 +87,6 @@ System.arraycopy(b, 0, x, 3, 2);
 > - Elements in the array must be all be the same type. Elements in a class may be of different types.
 > - Array indices are computed at runtime. We cannot compute class member variable names.
 
+## ArrayList
+> - Resize: multiply resize factor.
+> - Generic AList: **items = (Item[]) new Object[100]**
