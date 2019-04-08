@@ -90,3 +90,32 @@ System.arraycopy(b, 0, x, 3, 2);
 ## ArrayList
 > - Resize: multiply resize factor.
 > - Generic AList: **items = (Item[]) new Object[100]**
+
+------------------------------------------
+# Inheritance, Implements  
+
+## Interface, Implements  
+```java
+public interface List61B<Item> {
+    public void addFirst(Item x);
+    public Item getFirst();
+    ...
+    default public void print() {
+        ...
+    }
+
+}
+
+public class AList<Item> implements List61B<Item> {
+    @Override
+    public void addFirst(Item x) {
+        ...
+    }
+    ...
+}
+```
+
+## Interface Inheritance vs. Implementation Inheritance  
+* Interface inheritance (what): Simply tells what the subclasses should be able to do.  
+* Implementation inheritance (how): Tells the subclasses how they should behave.  
+
