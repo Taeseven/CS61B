@@ -119,3 +119,111 @@ public class AList<Item> implements List61B<Item> {
 * Interface inheritance (what): Simply tells what the subclasses should be able to do.  
 * Implementation inheritance (how): Tells the subclasses how they should behave.  
 
+## Extends  
+* hierarchical relationship between classes.  
+* same functions and additional operation.  
+```java
+public class RotatingSLList<Item> extends SLList<Item>
+```
+> Using the **extends** keyword, subclasses inherit all members of the parent class. "Members" includes:
+> * All instance and static variables.  
+> * All methods.
+> * All nested classes.  
+
+The **super** keyword can be used to invoke overridden superclass methods and constructors. 
+
+## Constructors Are Not Inherited
+Java requires that all constructors must start with a call to one of its superclass's constructors.  
+
+## Type Checking and Casting
+example: VengefulSLList is-a SLList.  
+```java
+VengefulSLList<Integer> vsl = new VengefulSLList<Integer>(9);
+SLList<Integer> sl = vsl;
+sl.addLast(50);
+sl.removeLast();
+```
+above lines works fine.  
+```java
+sl.printLostItems();
+```
+This line above results in a compile-time error. Remember that the compiler determines whether or not something is valid based on the static type of the object. Since sl is of static type SLList, and printLostItems is not defined in the SLList class, the code will not be allowed to run, even though sl's runtime type is VengefulSLList.  
+```java
+VengefulSLList<Integer> vsl2 = sl;
+```
+This line above also results in a compile-time error, for a similar reason. In general, the compiler only allows method calls and assignments based on compile-time types. Since the compiler only sees that the static type of sl is SLList, it will not allow a VengefulSLList "container" to hold it.
+
+### Casting
+Tell the compiler that a specific expression has a specific compile-time type.   
+```java
+Poodle frank = new Poodle("Frank", 5);
+Poodle frankJr = new Poodle("Frank Jr.", 15);
+Dog largerDog = maxDog(frank, frankJr);
+Poodle largerPoodle = (Poodle) maxDog(frank, frankJr);
+```
+* Casting is a powerful but dangerous tool. Essentially, casting is telling the compiler not to do its type-checking duties - telling it to trust you and act the way you want it to.
+
+## Higher Order Functions
+```java
+public interface IntUnaryFunction {
+    int apply(int x);
+}
+
+public class TenX implements IntUnaryFunction {
+    /* Returns ten times the argument. */
+    public int apply(int x) {
+        return 10 * x;
+    }
+}
+
+public static int do_twice(IntUnaryFunction f, int x) {
+    return f.apply(f.apply(x));
+}
+
+System.out.println(do_twice(new TenX(), 2));
+```
+
+## Inheritance Cheatsheet
+VengefulSLList extends SLList means VengefulSLList "is-an" SLList, and inherits all of SLList's members:  
+* Variables, methods nested classes
+* Not constructors Subclass constructors must invoke superclass constructor first. The super keyword can be used to invoke overridden superclass methods and constructors.  
+
+Invocation of overridden methods follows two simple rules:
+* Compiler plays it safe and only allows us to do things according to the static type.
+* For overridden methods (not overloaded methods), the actual method invoked is based on the dynamic type of the invoking expression
+* Can use casting to overrule compiler type checking.  
+
+## Subtype Polymorphism vs. HoFs Functions 
+## Typing Rules
+> * Compiler allows the memory box to hold any subtype.
+> * Compiler allows calls based on static type.
+> * Overriden non-static methods are selected at runtime based on dynamic type.
+> * For overloaded methods, the method is selected at compile time.
+
+### Polymorphism
+> Consider a variable of static type Deque. The behavior of calling deque.method() depends on the dynamic type. Thus, we could have many subclasses the implement the Deque interface, all of which will be able to call deque.method().  
+
+## Comparable  
+> Java has an in-built Comparable interface that uses generics to avoid any weird casting issues. Plus, Comparable already works for things like Integer, Character, and String; moreover, these objects have already implemented a max, min, etc. method for you. Thus you do not need to re-do work that’s already been done!  
+
+## Comparator  
+```java
+import java.util.Comparator;
+
+public class Dog implements Comparable<Dog> {
+    ...
+    public int compareTo(Dog uddaDog) {
+        return this.size - uddaDog.size;
+    }
+
+    private static class NameComparator implements Comparator<Dog> {
+        public int compare(Dog a, Dog b) {
+            return a.name.compareTo(b.name);
+        }
+    }
+
+    public static Comparator<Dog> getNameComparator() {
+        return new NameComparator();
+    }
+}
+```
