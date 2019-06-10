@@ -1,6 +1,13 @@
-Lecture Notes
+# Lecture Notes
+***
+Notes for UCB CS61B, 2018 Spring   
+@ Instructor: [Josh Hug](https://www2.eecs.berkeley.edu/Faculty/Homepages/joshhug.html)    
+@ [Course Website](https://sp18.datastructur.es/index.html)   
+@ [Java Visualizer](https://cscircles.cemc.uwaterloo.ca/java_visualize/)   
+@ Contributor: Chutian Tai
+***
 ------------------------------------------
-# Intro, Hello World Java
+## Intro, Hello World Java
 
 * All code in Java must be part of a class.
 * We delimit the beginning and end of segments of code using { and }.
@@ -21,7 +28,7 @@ Lecture Notes
 * Functions must have a return type. If a function does not return anything, we use void.
 
 ------------------------------------------
-# Intro, Hello World Java
+## Intro, Hello World Java
 * **Static VS. Instance methods**  
     - Instance methods are actions that can only be taken by an instance of the class (i.e. a specific object), whereas static methods are taken by the class itself. An instance method is invoked using a reference to a specific instance, e.g. d.bark(), whereas static methods should be invoked using the class name, e.g. Math.sqrt(). 
 * **Static variables**  
@@ -30,12 +37,12 @@ Lecture Notes
     - Inside a method, we can use the **this** keyword to refer to the current instance. This is equivalent to **self** in Python.  
 
 ------------------------------------------
-# Lists
+## Lists
 > * **Primitive Types**: byte, short, int, long, float, double, boolean, and char.
 > * **Reference Type**: If a variable is not a primitive type, then it is a reference type. When we declare object variables, we use reference type variables to store the location in memory of where an object is located. Remember this is what the constructor returns. A reference type is always a box of size 64 bits. Note that the variable does not store the entire object itself!  
 > * **Golden Rule of Equals**: when we assign a value with equals, we are just copying the bits from one memory box to another!  
 
-## SLLists
+### SLLists
 * **Private**
 > - prevents code in other classes from accessing(while the code inside the class can still do so).  
 * **Nested Classes**  
@@ -45,7 +52,7 @@ Lecture Notes
 * **Invariants**
 > - An invariant is a fact about a data structure that is guaranteed to be true.
 
-## DLList  
+### DLList  
 > give each IntNode a prev pointer, pointing to the previous item. This creates a doubly-linked list.(two sentinel nodes or circular sentinel).
 
 * **Generic DDList**  
@@ -59,7 +66,7 @@ If we now want to create a DLList holding String objects, then we must say:
 DLList<String> list = new DLList<>("bone");
 ```
 
-## Arrays  
+### Arrays  
 > Arrays do not have methods!  
 
 * **Instantiating Arrays**  
@@ -87,14 +94,14 @@ System.arraycopy(b, 0, x, 3, 2);
 > - Elements in the array must be all be the same type. Elements in a class may be of different types.
 > - Array indices are computed at runtime. We cannot compute class member variable names.
 
-## ArrayList
+### ArrayList
 > - Resize: multiply resize factor.
 > - Generic AList: **items = (Item[]) new Object[100]**
 
 ------------------------------------------
-# Inheritance, Implements  
+## Inheritance, Implements  
 
-## Interface, Implements  
+### Interface, Implements  
 ```java
 public interface List61B<Item> {
     public void addFirst(Item x);
@@ -115,11 +122,17 @@ public class AList<Item> implements List61B<Item> {
 }
 ```
 
-## Interface Inheritance vs. Implementation Inheritance  
+> **Interface:** 
+> - variables can exist in interfaces but they are public static final.
+> - classes can extend more than 1 interface.
+> - methods are public unless stated otherwise
+> - interfaces cannot be instantiated.
+
+### Interface Inheritance vs. Implementation Inheritance  
 * Interface inheritance (what): Simply tells what the subclasses should be able to do.  
 * Implementation inheritance (how): Tells the subclasses how they should behave.  
 
-## Extends  
+### Extends  
 * hierarchical relationship between classes.  
 * same functions and additional operation.  
 ```java
@@ -132,10 +145,10 @@ public class RotatingSLList<Item> extends SLList<Item>
 
 The **super** keyword can be used to invoke overridden superclass methods and constructors. 
 
-## Constructors Are Not Inherited
+### Constructors Are Not Inherited
 Java requires that all constructors must start with a call to one of its superclass's constructors.  
 
-## Type Checking and Casting
+### Type Checking and Casting
 example: VengefulSLList is-a SLList.  
 ```java
 VengefulSLList<Integer> vsl = new VengefulSLList<Integer>(9);
@@ -153,7 +166,7 @@ VengefulSLList<Integer> vsl2 = sl;
 ```
 This line above also results in a compile-time error, for a similar reason. In general, the compiler only allows method calls and assignments based on compile-time types. Since the compiler only sees that the static type of sl is SLList, it will not allow a VengefulSLList "container" to hold it.
 
-### Casting
+#### Casting
 Tell the compiler that a specific expression has a specific compile-time type.   
 ```java
 Poodle frank = new Poodle("Frank", 5);
@@ -163,7 +176,7 @@ Poodle largerPoodle = (Poodle) maxDog(frank, frankJr);
 ```
 * Casting is a powerful but dangerous tool. Essentially, casting is telling the compiler not to do its type-checking duties - telling it to trust you and act the way you want it to.
 
-## Higher Order Functions
+### Higher Order Functions
 ```java
 public interface IntUnaryFunction {
     int apply(int x);
@@ -183,7 +196,7 @@ public static int do_twice(IntUnaryFunction f, int x) {
 System.out.println(do_twice(new TenX(), 2));
 ```
 
-## Inheritance Cheatsheet
+### Inheritance Cheatsheet
 VengefulSLList extends SLList means VengefulSLList "is-an" SLList, and inherits all of SLList's members:  
 * Variables, methods nested classes
 * Not constructors Subclass constructors must invoke superclass constructor first. The super keyword can be used to invoke overridden superclass methods and constructors.  
@@ -193,20 +206,20 @@ Invocation of overridden methods follows two simple rules:
 * For overridden methods (not overloaded methods), the actual method invoked is based on the dynamic type of the invoking expression
 * Can use casting to overrule compiler type checking.  
 
-## Subtype Polymorphism vs. HoFs Functions 
-## Typing Rules
+### Subtype Polymorphism vs. HoFs Functions 
+### Typing Rules
 > * Compiler allows the memory box to hold any subtype.
 > * Compiler allows calls based on static type.
 > * Overriden non-static methods are selected at runtime based on dynamic type.
 > * For overloaded methods, the method is selected at compile time.
 
-### Polymorphism
+#### Polymorphism
 > Consider a variable of static type Deque. The behavior of calling deque.method() depends on the dynamic type. Thus, we could have many subclasses the implement the Deque interface, all of which will be able to call deque.method().  
 
-## Comparable  
+### Comparable  
 > Java has an in-built Comparable interface that uses generics to avoid any weird casting issues. Plus, Comparable already works for things like Integer, Character, and String; moreover, these objects have already implemented a max, min, etc. method for you. Thus you do not need to re-do work that’s already been done!  
 
-## Comparator  
+### Comparator  
 ```java
 import java.util.Comparator;
 
@@ -227,3 +240,12 @@ public class Dog implements Comparable<Dog> {
     }
 }
 ```
+### Java Libraries and packages  
+> **Abstract data type:**  only comes with behaviors, not any concrete ways to exhibit those behaviors.  
+
+> **Abstract Classes**
+> - Methods can be public or private
+> - Can have any types of variables
+> - Cannot be instantiated
+> - Methods are by default concrete unless specified to be abstract
+> - Can only implement one per class  
