@@ -1,3 +1,42 @@
+<style type="text/css">
+    h1 { counter-reset: h2counter; }
+    h2 { counter-reset: h3counter; }
+    h3 { counter-reset: h4counter; }
+    h4 { counter-reset: h5counter; }
+    h5 { counter-reset: h6counter; }
+    h6 { }
+    h2:before {
+      counter-increment: h2counter;
+      content: counter(h2counter) ".\0000a0\0000a0";
+    }
+    h3:before {
+      counter-increment: h3counter;
+      content: counter(h2counter) "."
+                counter(h3counter) ".\0000a0\0000a0";
+    }
+    h4:before {
+      counter-increment: h4counter;
+      content: counter(h2counter) "."
+                counter(h3counter) "."
+                counter(h4counter) ".\0000a0\0000a0";
+    }
+    h5:before {
+      counter-increment: h5counter;
+      content: counter(h2counter) "."
+                counter(h3counter) "."
+                counter(h4counter) "."
+                counter(h5counter) ".\0000a0\0000a0";
+    }
+    h6:before {
+      counter-increment: h6counter;
+      content: counter(h2counter) "."
+                counter(h3counter) "."
+                counter(h4counter) "."
+                counter(h5counter) "."
+                counter(h6counter) ".\0000a0\0000a0";
+    }
+</style>
+
 # Lecture Notes
 ***
 Notes for UCB CS61B, 2018 Spring   
@@ -7,7 +46,7 @@ Notes for UCB CS61B, 2018 Spring
 @ Contributor: Chutian Tai
 ***
 ------------------------------------------
-## Intro, Hello World Java
+ ## Intro, Hello World Java
 
 * All code in Java must be part of a class.
 * We delimit the beginning and end of segments of code using { and }.
@@ -26,9 +65,6 @@ Notes for UCB CS61B, 2018 Spring
    and the return value of the function must have a declared type.
    Functions in Java return only one value!
 * Functions must have a return type. If a function does not return anything, we use void.
-
-------------------------------------------
-## Intro, Hello World Java
 * **Static VS. Instance methods**  
     - Instance methods are actions that can only be taken by an instance of the class (i.e. a specific object), whereas static methods are taken by the class itself. An instance method is invoked using a reference to a specific instance, e.g. d.bark(), whereas static methods should be invoked using the class name, e.g. Math.sqrt(). 
 * **Static variables**  
@@ -97,6 +133,10 @@ System.arraycopy(b, 0, x, 3, 2);
 ### ArrayList
 > - Resize: multiply resize factor.
 > - Generic AList: **items = (Item[]) new Object[100]**
+
+------------------------------------------
+## Testing
+
 
 ------------------------------------------
 ## Inheritance, Implements  
@@ -248,4 +288,53 @@ public class Dog implements Comparable<Dog> {
 > - Can have any types of variables
 > - Cannot be instantiated
 > - Methods are by default concrete unless specified to be abstract
-> - Can only implement one per class  
+> - Can only implement one per class 
+
+------------------------------------------
+## Generics and Autoboxing
+### Autoboxing
+* **Autoboxing and Unboxing**: is the Java's automatic conversion of between wrappers(Integer) to primitives(int).
+* In Java cann't provide a primitive type as an actual type argument for generics.
+* Arrays are never autoboxes or autoboxed.
+* Autoboxing and Unboxing also have a measurable performance impact.
+* Wrapper types use much more memory than primitive types.
+* **Widening**: widen a primitive if needed.
+
+### Immutability
+* **Immutability**: Immutable data types are types that  can't change in any observable way after instantiation. (String)
+* **final**: for variables that prevents the variable from being changed after its first assignment.
+* **Advantages of immutability**:  
+    - Prevents bugs and makes debugging easier.  
+    - You can count on objects to have a certian behavior.
+* **Disadvantages of immutability**:  
+    - You need to create a new object in order to change a property.
+
+### Generics
+* **Generic Classes**:
+```java
+public class ArrayMap<K, V> {...}
+```
+* **Generic Methods**:
+```java
+public static <K, V> V get(ArrayMap<K, V> am, K key) {...}
+```
+* **extends**: is active in giving the subclass the abilities of the superclass.
+```java
+public static <K extends Comparable<K>, V) K maxKey(Map61B<K, V> map) {...}
+```
+* **Wildcard character**: **?**  
+    dealing with Types we don't care about.
+```java
+public static void allBark(ArrayMap<Dog, ?> am){...}
+```
+* **Covariance**： Arrays are covariant in Java, but generic types are invariant.  
+    - An FrenchDog[] is a Dog[]  
+    - A List<FrenchDog> is not a List<Dog>
+```java
+// option 1
+public static <K extends Dog> void allBark(ArrayMap<K, ?> am) {...}
+// option 2
+public static void allBark(ArrayMap<? extends Dog, ?> am) {...}
+```
+
+------------------------------------------
