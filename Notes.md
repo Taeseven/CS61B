@@ -338,3 +338,82 @@ public static void allBark(ArrayMap<? extends Dog, ?> am) {...}
 ```
 
 ------------------------------------------
+## Exception, Iterators, Iterables, Object Methods
+
+### Lists, Set and ArrayList
+* **List** s an interface we can't instatiate it, instatiate one of its implements.
+* **Sets** are a collection of unique elements - you can only have one copy of each element. There is also no sense of order.
+
+### Exception
+* Throw our own exception using the **throw** keyword.
+```java
+throw new RuntimeException("For no reason.");
+```
+* The keywords *try* and *catch* break the normal flow of the program, protecting it from exceptions.
+* **Checked exception**: are considered by the compiler that you must handle them somehow.
+* **Unchecked exception**: unchecked by compiler(Runtime Exception, Error)
+* Two ways to handle checked exception:  
+> - **Catch**
+> ```java
+> public static void main(String[] args) {
+>     try {
+>         gulgate();
+>     } catch(IOException e) {
+>         System.out.println("Averted!");
+>     }
+> }
+> ```
+> - **Specify**
+> ```java
+> public static void main(String[] args) throws IOException {
+>     gulgate();
+> }
+> ```
+
+### Iteration
+* **Iterable**: the interface that makes a class able to be iterated on, and requires the method iterator(), which returns an Iterator object.
+* Instantiating a non-static nested class requires dot notation.
+```java
+ArrayMap.KeyIterator ami = am.new KeyIterator();
+```
+
+### Object Method
+* String object is immutable, use StringBuilder instead.
+* Use String.join() makes your code simple.
+* **==** checks if two objects are actually the same object in memory. For primitives, this means checking if the values are equal. For objects, this means checking if the address/pointer is equal.
+* **equals(Object o)** is a method in the Object that, by default, acts like == in that it checks if the memory address of the this is the same as o. However, we can override it to define equality in whichever way we wish.
+* **.of()** method:
+```java 
+public static <Glerp> ArraySet<Glerp> of(Glerp... stuff) {
+    ArraySet<Glerp> returnSet = new ArraySet<Glerp>();
+    for (Glerp x : stuff) {
+        returnSet.add(x);
+    }
+    return returnSet;
+}
+```
+
+------------------------------------------
+## Package and Access Control
+### Packages
+* **Package**: a namespace that organizes classes and interfaces. Package name starts with the website address, backwards.
+* Creating a package:  
+> - Put the package name at the top of every file in this package.
+> ```java
+> package ug.joshh.animal;
+> ```
+> - Store the file in a folder that has the appropriate folder name. The folder should have a name that matches your package:  
+> i.e. ug.joshh.animal package is in ug/joshh/animal folder
+* **Default packages**: Any Java class without an explicit package name at the top of the file is automatically considered to be part of the “default” package.
+* **JAR file**: .jar file will contain all your .class files, along with some other additional information.
+* JAR files do not keep your code safe.
+
+### Access Control
+* **Private**: Only code from the given class can access private members.
+* **Package Private**: Default access. It entails that classes that belong in the same package can access, but not subclasses.
+* **Protected**: classes within the same package and subclasses can access these members.
+* **Public**: This keyword opens up the access to everyone.
+![avatar](./pics/control_access.png)
+
+
+
