@@ -15,13 +15,13 @@ public class TestArrayDequeGold {
                 sad.addLast(i);
                 sol.addLast(i);
                 message += "addLast(" + i + ")\n";
-//                assertEquals(message, (Object) i, input.get(input.size() - 1));
+                assertEquals(message, (Object) i, sad.get(sad.size() - 1));
 
             } else {
                 sad.addFirst(i);
                 sol.addFirst(i);
-//                assertEquals(message + "addFirst()\n", (Object) i, input.get(0));
                 message += "addFirst(" + i + ")\n";
+                assertEquals(message + "addFirst()\n", (Object) i, sad.get(0));
             }
         }
         for (int i = 0; i < 10; i += 1) {

@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3fb82a00-0507-43d6-b06a-89077c4252a4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestArrayDequeGold.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestArrayDequeGold.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -17,8 +16,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TestArrayDequeGold.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="501">
-              <caret line="35" column="59" selection-start-line="35" selection-start-column="59" selection-end-line="35" selection-end-column="59" />
+            <state relative-caret-position="440">
+              <caret line="20" column="32" lean-forward="true" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -96,7 +95,7 @@
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560355095063" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560397148801" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -229,9 +228,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="TestArrayDequeGold_randomizedTest - 2019.06.12 at 23h 16m 25s.xml">
-      <configuration name="TestArrayDequeGold.randomizedTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="TestArrayDequeGold_randomizedTest - 2019.06.12 at 23h 17m 49s.xml">
       <configuration name="TestArrayDequeGold.randomizedTest" configurationId="JUnit" />
     </history-entry>
@@ -259,10 +255,12 @@
     <history-entry file="TestArrayDequeGold_testGold - 2019.06.12 at 23h 57m 52s.xml">
       <configuration name="TestArrayDequeGold.testGold" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="TestArrayDequeGold_testGold - 2019.06.13 at 11h 36m 24s.xml">
+      <configuration name="TestArrayDequeGold.testGold" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25679544" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -370,8 +368,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TestArrayDequeGold.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="501">
-          <caret line="35" column="59" selection-start-line="35" selection-start-column="59" selection-end-line="35" selection-end-column="59" />
+        <state relative-caret-position="440">
+          <caret line="20" column="32" lean-forward="true" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
         </state>
       </provider>
     </entry>
