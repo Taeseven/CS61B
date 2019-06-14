@@ -413,7 +413,25 @@ public static <Glerp> ArraySet<Glerp> of(Glerp... stuff) {
 * **Package Private**: Default access. It entails that classes that belong in the same package can access, but not subclasses.
 * **Protected**: classes within the same package and subclasses can access these members.
 * **Public**: This keyword opens up the access to everyone.
-![avatar](./pics/control_access.png)
+
+------------------------------------------
+## Efficient Programming
+### Encapsulation, API's, ADT's
+* **Module**： A set of methods that work together as a whole to perform some task or set of related tasks.
+* **Encapsulated**： A module is said to be encapsulated if its implementation is completely hidden, and it can be accessed only through a documented interface.
+* **API**: Application Programming Interface. 
+* An API of an ADT is the list of constructors and methods and a short description of each.
+* API consists of syntactic and semantic specification:  
+> - Compiler verifies that syntax is met.  (AKA, everything specified in the API is present.)
+> - Tests help verify that semantics are correct. (AKA everything actually works the way it should.)
+* **ADT's**: Abstract Data Structures. are high-level types that are defined by their *behaviors*, not their implementations.
+* It is safe to use inheritance within a package, where the subclass and the superclass are under control of the same programmers.
+* It is safe to extend classes specifically designed and documented for extension.
+* Inheriting from ordinary concrete classes across package boundaries is dangerous.
+
+### Asymptotics
+
+
 
 
 
