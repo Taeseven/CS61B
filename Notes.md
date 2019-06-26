@@ -430,6 +430,20 @@ public static <Glerp> ArraySet<Glerp> of(Glerp... stuff) {
 * Inheriting from ordinary concrete classes across package boundaries is dangerous.
 
 ### Asymptotics
+* $1+2+3+4+\cdots+N \in \Theta(N^2)$
+* $1+2+4+8+\cdots+N \in \Theta(N)$
+* **Big Theta**:
+
+$$ R(N) \in \Theta(f(N)) \quad \textbf{if} \quad k_1 f_1(N) \leq R(N) \leq k_2 f_2(N)$$
+
+* - Notations 
+    - Big Theta: worst case equal  
+    - Big O: less than or equal  
+    - Big Omega: greater than or equal
+
+
+
+
 
 
 
