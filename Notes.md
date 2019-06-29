@@ -49,42 +49,61 @@ Notes for UCB CS61B, 2018 Spring
  ## Intro, Hello World Java
 
 * All code in Java must be part of a class.
+
 * We delimit the beginning and end of segments of code using { and }.
+
 * All statements in Java must end in a semi-colon.
+
 * For code to run we need public static void main(String[] args)
+
 * Before Java variables can be used, they must be declared.
+
 * Java variables must have a specific type.
+
 * Java variable types can never change.
+
 * Types are verified before the code even runs!
+
 * Functions must be declared as part of a class in Java.
    A function that is part of a class is called a "method".
    So in Java, all functions are methods.
+
 * To define a function in Java, we use "public static".
    We will see alternate ways of defining functions later.
+
 * All parameters of a function must have a declared type,
    and the return value of the function must have a declared type.
    Functions in Java return only one value!
+
 * Functions must have a return type. If a function does not return anything, we use void.
+
 * **Static VS. Instance methods**  
     - Instance methods are actions that can only be taken by an instance of the class (i.e. a specific object), whereas static methods are taken by the class itself. An instance method is invoked using a reference to a specific instance, e.g. d.bark(), whereas static methods should be invoked using the class name, e.g. Math.sqrt(). 
+
 * **Static variables**  
     - Variables can also be static. Static variables should be accessed using the class name, e.g. Dog.binomen as opposed to d.binomen.  
+
 * **'this'**  
     - Inside a method, we can use the **this** keyword to refer to the current instance. This is equivalent to **self** in Python.  
 
 ------------------------------------------
 ## Lists
 > * **Primitive Types**: byte, short, int, long, float, double, boolean, and char.
+
 > * **Reference Type**: If a variable is not a primitive type, then it is a reference type. When we declare object variables, we use reference type variables to store the location in memory of where an object is located. Remember this is what the constructor returns. A reference type is always a box of size 64 bits. Note that the variable does not store the entire object itself!  
+
 > * **Golden Rule of Equals**: when we assign a value with equals, we are just copying the bits from one memory box to another!  
 
 ### SLLists
 * **Private**
 > - prevents code in other classes from accessing(while the code inside the class can still do so).  
+
 * **Nested Classes**  
-> - move classes into classes to make nested classes.  
+> - move classes into classes to make nested classes. 
+
 * **Static Nested Classed**  
 > - If the IntNode class never uses any variable or method of the SLList class, we can turn this class static by adding the “static” keyword.
+
 * **Invariants**
 > - An invariant is a fact about a data structure that is guaranteed to be true.
 
@@ -170,10 +189,12 @@ public class AList<Item> implements List61B<Item> {
 
 ### Interface Inheritance vs. Implementation Inheritance  
 * Interface inheritance (what): Simply tells what the subclasses should be able to do.  
+
 * Implementation inheritance (how): Tells the subclasses how they should behave.  
 
 ### Extends  
 * hierarchical relationship between classes.  
+
 * same functions and additional operation.  
 ```java
 public class RotatingSLList<Item> extends SLList<Item>
@@ -294,18 +315,26 @@ public class Dog implements Comparable<Dog> {
 ## Generics and Autoboxing
 ### Autoboxing
 * **Autoboxing and Unboxing**: is the Java's automatic conversion of between wrappers(Integer) to primitives(int).
+
 * In Java cann't provide a primitive type as an actual type argument for generics.
+
 * Arrays are never autoboxes or autoboxed.
+
 * Autoboxing and Unboxing also have a measurable performance impact.
+
 * Wrapper types use much more memory than primitive types.
+
 * **Widening**: widen a primitive if needed.
 
 ### Immutability
 * **Immutability**: Immutable data types are types that  can't change in any observable way after instantiation. (String)
+
 * **final**: for variables that prevents the variable from being changed after its first assignment.
+
 * **Advantages of immutability**:  
     - Prevents bugs and makes debugging easier.  
     - You can count on objects to have a certian behavior.
+
 * **Disadvantages of immutability**:  
     - You need to create a new object in order to change a property.
 
@@ -342,6 +371,7 @@ public static void allBark(ArrayMap<? extends Dog, ?> am) {...}
 
 ### Lists, Set and ArrayList
 * **List** s an interface we can't instatiate it, instatiate one of its implements.
+
 * **Sets** are a collection of unique elements - you can only have one copy of each element. There is also no sense of order.
 
 ### Exception
@@ -350,8 +380,11 @@ public static void allBark(ArrayMap<? extends Dog, ?> am) {...}
 throw new RuntimeException("For no reason.");
 ```
 * The keywords *try* and *catch* break the normal flow of the program, protecting it from exceptions.
+
 * **Checked exception**: are considered by the compiler that you must handle them somehow.
+
 * **Unchecked exception**: unchecked by compiler(Runtime Exception, Error)
+
 * Two ways to handle checked exception:  
 > - **Catch**
 > ```java
@@ -372,6 +405,7 @@ throw new RuntimeException("For no reason.");
 
 ### Iteration
 * **Iterable**: the interface that makes a class able to be iterated on, and requires the method iterator(), which returns an Iterator object.
+
 * Instantiating a non-static nested class requires dot notation.
 ```java
 ArrayMap.KeyIterator ami = am.new KeyIterator();
@@ -379,9 +413,13 @@ ArrayMap.KeyIterator ami = am.new KeyIterator();
 
 ### Object Method
 * String object is immutable, use StringBuilder instead.
+
 * Use String.join() makes your code simple.
+
 * **==** checks if two objects are actually the same object in memory. For primitives, this means checking if the values are equal. For objects, this means checking if the address/pointer is equal.
+
 * **equals(Object o)** is a method in the Object that, by default, acts like == in that it checks if the memory address of the this is the same as o. However, we can override it to define equality in whichever way we wish.
+
 * **.of()** method:
 ```java 
 public static <Glerp> ArraySet<Glerp> of(Glerp... stuff) {
@@ -397,6 +435,7 @@ public static <Glerp> ArraySet<Glerp> of(Glerp... stuff) {
 ## Package and Access Control
 ### Packages
 * **Package**: a namespace that organizes classes and interfaces. Package name starts with the website address, backwards.
+
 * Creating a package:  
 > - Put the package name at the top of every file in this package.
 > ```java
@@ -404,29 +443,42 @@ public static <Glerp> ArraySet<Glerp> of(Glerp... stuff) {
 > ```
 > - Store the file in a folder that has the appropriate folder name. The folder should have a name that matches your package:  
 > i.e. ug.joshh.animal package is in ug/joshh/animal folder
+
 * **Default packages**: Any Java class without an explicit package name at the top of the file is automatically considered to be part of the “default” package.
+
 * **JAR file**: .jar file will contain all your .class files, along with some other additional information.
+
 * JAR files do not keep your code safe.
 
 ### Access Control
 * **Private**: Only code from the given class can access private members.
+
 * **Package Private**: Default access. It entails that classes that belong in the same package can access, but not subclasses.
+
 * **Protected**: classes within the same package and subclasses can access these members.
+
 * **Public**: This keyword opens up the access to everyone.
 
 ------------------------------------------
 ## Efficient Programming
 ### Encapsulation, API's, ADT's
 * **Module**： A set of methods that work together as a whole to perform some task or set of related tasks.
+
 * **Encapsulated**： A module is said to be encapsulated if its implementation is completely hidden, and it can be accessed only through a documented interface.
+
 * **API**: Application Programming Interface. 
 * An API of an ADT is the list of constructors and methods and a short description of each.
+
 * API consists of syntactic and semantic specification:  
 > - Compiler verifies that syntax is met.  (AKA, everything specified in the API is present.)
 > - Tests help verify that semantics are correct. (AKA everything actually works the way it should.)
+
 * **ADT's**: Abstract Data Structures. are high-level types that are defined by their *behaviors*, not their implementations.
+
 * It is safe to use inheritance within a package, where the subclass and the superclass are under control of the same programmers.
+
 * It is safe to extend classes specifically designed and documented for extension.
+
 * Inheriting from ordinary concrete classes across package boundaries is dangerous.
 
 ### Asymptotics
@@ -440,6 +492,63 @@ $$ R(N) \in \Theta(f(N)) \quad \textbf{if} \quad k_1 f_1(N) \leq R(N) \leq k_2 f
     - Big Theta: worst case equal  
     - Big O: less than or equal  
     - Big Omega: greater than or equal
+
+------------------------------------------
+## Disjoint Sets
+> - connected(x, y)  
+> - isConnected(x, y)
+
+* Quick Find:  
+    - The indices of the array represent the elements of our set.  
+    - The value at an index is the set number it belongs to.  
+    - Consructor: $\Theta(N)$  
+    - connect(): $\Theta(N)$(need to change the value of whole set)  
+    - isConnected(): $\Theta(1)$  
+
+* Quick Union:  
+    - tree structure, need to find the 'root' to see if is connected.  
+    - Consructor: $\Theta(N)$  
+    - connect(): $O(N)$  
+    - isConnected(): $O(N)$  
+
+* Weighted Quick Union:  
+    - always link the root of the smaller tree to the larger tree.  
+    - Maximum height: $log(N)$  
+    - Consructor: $\Theta(N)$  
+    - connect(): $O(log(N))$  
+    - isConnected(): $O(log(N))$  
+
+* Weighted Quick Union with Path Compression:  
+    - when using find() to find its root, connect all the items we visit to their root at no extra asymptotic cost.  
+    - Consructor: $\Theta(N)$  
+    - connect(): $O(\alpha(N))$  
+    - isConnected(): $O(\alpha(N))$ 
+
+------------------------------------------
+## Binary Search Tree
+* Tree:  
+> - nodes  
+> - edges  
+    -   exactly one path between any two nodes
+
+* Rooted Tree:  
+> - Every node N except the root has exactly one parent, defined as the first node on the path from N to the root.  
+> - Unlike (most) real trees, the root is usually depicted at the top of the tree.  
+> - A node with no child is called a leaf.
+
+* BST Property:  
+> - Every key in the left subtree is less than X’s key.
+> - Every key in the right subtree is greater than X’s key.
+
+* Binary Trees: in addition to the above requirements, also hold the binary property constraint. That is, each node has either 0, 1, or 2 children.
+
+* Binary Search Trees: Binary Trees + BST Property
+
+* Search: If our tree is relatively "bushy", the find operation will run in $log(N)$ time.  
+
+* Insert: always insert a leaf node.
+
+* Delete: Hibbard deletion, need to conern the new root.
 
 
 
