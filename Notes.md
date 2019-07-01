@@ -550,6 +550,8 @@ $$ R(N) \in \Theta(f(N)) \quad \textbf{if} \quad k_1 f_1(N) \leq R(N) \leq k_2 f
 
 * Delete: Hibbard deletion, need to conern the new root.
 
+------------------------------------------
+## 
 
 
 
