@@ -551,9 +551,37 @@ $$ R(N) \in \Theta(f(N)) \quad \textbf{if} \quad k_1 f_1(N) \leq R(N) \leq k_2 f
 * Delete: Hibbard deletion, need to conern the new root.
 
 ------------------------------------------
-## 
+## Balanced BST
+* BST terminology:  
+> - **depth**: the number of links between a node and the root.  
+> - **height**: the lowest depth of a tree.  
+> - **average depth**: average of the total depths in the tree.  
+The height of the tree determines the worst-case runtime.  
+The average depth determines the average-case runtime.
 
+* B-Tree invariants:  
+> - All leaves must be the same distance from the source.  
+> - A non-leaf node with k items mut has exactly k+1 children.
 
+* B-Tree performance:  
+> - **height**: between $log_L(N)$ to $log_2(N)$.  
+> - **runtime**: $O(log(N))$  
+
+* Left-Leaning Red-Black trees have a 1-1 correspondence with 2-3 trees. Every 2-3 tree has a unique LLRB red-black tree associated with it. As for 2-3-4 trees, they maintain correspondence with standard Red-Black trees.
+
+* Properties of LLRB's:  
+> - 1-1 correspondence with 2-3 trees.  
+> - No node has 2 red links.  
+> - There are no red right-links.  
+> - Every path from root to leaf has same number of black links (because 2-3 trees have same number of links to every leaf).  
+> - Height is no more than 2x height of corresponding 2-3 tree.  
+
+* LLRB runtime:  
+> - **height**: $O(log(N))$  
+> - **contains**: $O(log(N))$  
+> - **insert**: $O(log(N))$ ($O(log(N))$ to add the new node, $O(log(N))$ rotation and color flip operations per insert.)
+
+s
 
 
 
