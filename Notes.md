@@ -500,29 +500,27 @@ $$ R(N) \in \Theta(f(N)) \quad \textbf{if} \quad k_1 f_1(N) \leq R(N) \leq k_2 f
 
 * Quick Find:  
     - The indices of the array represent the elements of our set.  
-    - The value at an index is the set number it belongs to.  
-    - Consructor: $\Theta(N)$  
-    - connect(): $\Theta(N)$(need to change the value of whole set)  
-    - isConnected(): $\Theta(1)$  
+    - The value at an index is the set number it belongs to.   
 
 * Quick Union:  
     - tree structure, need to find the 'root' to see if is connected.  
-    - Consructor: $\Theta(N)$  
-    - connect(): $O(N)$  
-    - isConnected(): $O(N)$  
 
 * Weighted Quick Union:  
     - always link the root of the smaller tree to the larger tree.  
     - Maximum height: $log(N)$  
-    - Consructor: $\Theta(N)$  
-    - connect(): $O(log(N))$  
-    - isConnected(): $O(log(N))$  
 
 * Weighted Quick Union with Path Compression:  
     - when using find() to find its root, connect all the items we visit to their root at no extra asymptotic cost.  
-    - Consructor: $\Theta(N)$  
-    - connect(): $O(\alpha(N))$  
-    - isConnected(): $O(\alpha(N))$ 
+
+
+* Disjoint Set Runtimes: 
+
+| Implementation | Constructor | connect | isConnected |
+| :------: | :------: | :------: | :------: |
+| QuickFindDS | $\Theta(N)$ | $\Theta(N)$ | $\Theta(1)$ |
+| QuickUnionDS | $\Theta(N)$ | $O(N)$ | $O(N)$ |
+| WeightedQuickUnionDS | $\Theta(N)$  | $O(log(N))$ | $O(log(N))$ |
+| ^with path compress | $\Theta(N)$ | $O(\alpha(N))$ | $O(\alpha(N))$ |
 
 ------------------------------------------
 ## Binary Search Tree
@@ -549,6 +547,13 @@ $$ R(N) \in \Theta(f(N)) \quad \textbf{if} \quad k_1 f_1(N) \leq R(N) \leq k_2 f
 * Insert: always insert a leaf node.
 
 * Delete: Hibbard deletion, need to conern the new root.
+
+* BST runtimes:  
+
+| Shape of Tree | Height | add | search |
+| :------: | :------: | :------: | :------: |
+| Bushy(best case) | $log(N)$ | $\Theta(log(N))$ | $\Theta(log(N))$ |
+| Spindly(worst case) | $N$ | $O(N)$ | $O(N)$ |
 
 ------------------------------------------
 ## Balanced BST
@@ -599,6 +604,13 @@ The average depth determines the average-case runtime.
 * Hash table performance:  
 > - contains: $\Theta(1)$  
 > - add: $\Theta(1)$
+
+* Hash table runtimes:  
+
+|  | add | get | remove |
+| :------: | :------: | :------: | :------: |
+| best case | $\Theta(1)$ |  $\Theta(1)$ | $\Theta(1)$ |
+| worst case | $\Theta(N)$ | $\Theta(N)$ | $\Theta(N)$ |
 
 ------------------------------------------
 ## 
