@@ -581,7 +581,27 @@ The average depth determines the average-case runtime.
 > - **contains**: $O(log(N))$  
 > - **insert**: $O(log(N))$ ($O(log(N))$ to add the new node, $O(log(N))$ rotation and color flip operations per insert.)
 
-s
+------------------------------------------
+## Hashing
+* **Overflow issues**: The largest possible value for integers in Java is 2,147,483,647. The smallest value is -2,147,483,648.
+
+* Every Object in Java has a default *.hashcode()* method.
+
+* Properties of HashCodes:  
+> - It must be an Integer.  
+> - If we run *.hashCode()* on an object twice, it should return the same number.  
+> - Two objects that are considered *.equal()* must have the same hash code.
+
+* Dynamically growing the hash table.
+
+* Use a 'base' that's a small prime.
+
+* Hash table performance:  
+> - contains: $\Theta(1)$  
+> - add: $\Theta(1)$
+
+------------------------------------------
+## 
 
 
 
