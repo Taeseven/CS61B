@@ -613,7 +613,47 @@ The average depth determines the average-case runtime.
 | worst case | $\Theta(N)$ | $\Theta(N)$ | $\Theta(N)$ |
 
 ------------------------------------------
-## 
+## Heaps and Priority Queues
+
+* **Priority Queue**: A Max Priority Queue (or PQ for short) is an ADT that supports at least the insert and delete-max operations. A MinPQ supposert insert and delete-min.  
+
+* **Heaps**: A max (min) heap is an array representation of a binary tree such that every node is larger (smaller) than all of its children. This definition naturally applies recursively, i.e. a heap of height 5 is composed of two heaps of height 4 plus a parent.
+
+* Min-Heap Property:  
+> - Min-heap: Every node is less than or equal to both of its children.  
+> - Complete: Missing items only at the bottom level (if any), all nodes are as far left as possible.  
+
+* **PriorityQueue ADT Operations**:  
+> - *add*: Add to the end of heap temporarily. Swim up the hierarchy to the proper place. (Swimming involves swapping nodes if child < parent)  
+> - *getSmallest*:  Return the root of the heap (This is guaranteed to be the minimum by our min-heap property)  
+> - *removeSmallest*: Swap the last item in the heap into the root. Sink down the hierarchy to the proper place. (Sinking involves swapping nodes if parent > child. Swap with the smallest child to preserve min-heap property)
+
+* Implementation: because of complete tree, no need to create a redundant arrays to store items; parents. (using swim operations to swap up/down)  
+> - hint: leave one empty spot at the beginning of the array to simplify computation.  
+> - **leftChild(k)**  $= k * 2$  
+> - **rightChild(k)** $= k * 2 + 1$  
+> - **parent(k)** $=k / 2$
+
+* Comparing to alternative implementations
+
+| Methods | Ordered Array | Bushy BST | Hash Table | Heap |
+| :------: | :------: | :------: | :------: | :------: |
+| add | $\Theta(N)$ | $\Theta(log(N))$ | $\Theta(1)$ | $\Theta(log(N))$ |
+| getSmallest | $\Theta(1)$ | $\Theta(log(N))$ | $\Theta(N)$ | $\Theta(1)$ |
+| removeSmallest | $\Theta(N)$ | $\Theta(log(N))$ | $\Theta(N)$ | $\Theta(log(N))$ |
+
+------------------------------------------
+## Brief Data Structure Summary
+
+[Josh's textbook](https://joshhug.gitbooks.io/hug61b/content/chap14/chap141.html)
+
+------------------------------------------
+## Prefix Operations and Tries
+
+
+
+
+
 
 
 
