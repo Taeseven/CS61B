@@ -648,7 +648,24 @@ The average depth determines the average-case runtime.
 [Josh's textbook](https://joshhug.gitbooks.io/hug61b/content/chap14/chap141.html)
 
 ------------------------------------------
-## Prefix Operations and Tries
+## Tries
+
+* **Tries**:   
+> - Every node stores only one letter.
+> - Nodes can be shared by multiple keys.
+
+* Implementation: (R: size of the alphabet)  
+> - DataIndexedCharMap: $\Theta(1)$ for add and contains, but use much memory.  
+> - BST: less memory, still fast $O(log(R))$
+> - HashTable: less memory. still realy fast $O(R)$
+
+* Advantages of Tries:  
+> - longestPrefixOf  
+> - prefixMatches  
+> - spell checking
+
+------------------------------------------
+## 
 
 
 
