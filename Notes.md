@@ -665,7 +665,24 @@ The average depth determines the average-case runtime.
 > - spell checking
 
 ------------------------------------------
-## 
+## Trees and Graph Traversals
+
+* **Trees**: A tree consists of a set of nodes and a set of edges connecting the nodes, where there is only one path between any two nodes. A tree is thus a graph with no cycles and all vertices connected.
+
+* **Tree Traversal Orderings**:  
+    > - **Level Order**: Visit top-to-bottom, left-to-right (like reading in English)  
+    > - **Depth First Traversals**:  
+        > > - **Preorder**: “Visit” a node, then traverse its children  
+        > > - **Inorder**: Traverse left child, visit, then traverse right child  
+        > > - **Postorder**: Traverse left, traverse right, then visit
+
+* **Graphs**: A graph consists of a set of nodes and a set of edges connecting the nodes. However, unlike our tree definition, we can have more than one path between nodes. Note that all trees are graphs.
+
+* **Simple Graphs**: no loops or parallel edges.
+
+* **Depth First Traversals**: DFS for graphs is similar to DFS for trees, but since there are potential cycles within our graph, we add the constraint that each vertex should be visited at most once. This can be accomplished by marking nodes as visited and only visiting a node if it had not been marked as visited already.
+
+
 
 
 
