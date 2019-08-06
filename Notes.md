@@ -662,10 +662,19 @@ The average depth determines the average-case runtime.
 * Advantages of Tries:  
 > - longestPrefixOf  
 > - prefixMatches  
-> - spell checking
+> - spell checkings
 
 ------------------------------------------
-## Trees and Graph Traversals
+## QuadTrees
+
+* Deal with Mutli-dimensional Data:  
+> - Uniform Partitioning  
+> - X-Based(Y-Based) Tree  
+> - QuadTrees(for 2D)
+> - K-D Trees(when $k=2$ X-based on the first level, Y-based on the second level, X-based on the third level, when $k=3$ XYZXYZ)
+
+------------------------------------------
+## Trees Traversals and Graphs
 
 * **Trees**: A tree consists of a set of nodes and a set of edges connecting the nodes, where there is only one path between any two nodes. A tree is thus a graph with no cycles and all vertices connected.
 
@@ -682,6 +691,65 @@ The average depth determines the average-case runtime.
 
 * **Depth First Traversals**: DFS for graphs is similar to DFS for trees, but since there are potential cycles within our graph, we add the constraint that each vertex should be visited at most once. This can be accomplished by marking nodes as visited and only visiting a node if it had not been marked as visited already.
 
+* **Breadth First Search**: analogous to 'level order'.
+
+------------------------------------------
+## Graph Traversals and Implementation
+
+* **Graph Traversals Overview**:  
+    > - DFS Preorder: order in which DFS is called on each vertex.  
+    > - DFS Postorder: order in which we return from DFS calls.  
+    > - BFS: order of distance from the source.  
+
+* Pseudocode of BFS:  
+    > - Initialize the fringe (a queue with the starting vertex) and mark that vertex.  
+    > - Repeat until fringe is empty:  
+    > - Remove vertex v from the fringe.
+    > - For each unmarked neighbor n of v:
+    > - Mark n.
+    > - Add n to fringe.
+    > - Set edgeTo[n] = v.
+    > - Set distTo[n] = distTo[v] + 1.
+
+* **Graph Representations**:  
+    > - Adjacency Matrix
+    > - Edge Sets
+    > - Adjacency Lists
+
+| Methods | addEdge(s, t) | for(w : adj(v)) | print()| hasEdge(s, t) | space used |
+| :------: | :------: | :------: | :------: | :------: | :------: |
+| Adjacency Matrix | $\Theta(1)$ | $\Theta(V)$ | $\Theta(V^2)$ | $\Theta(1)$ | $\Theta(V^2)$ |
+| Edge Sets | $\Theta(1)$ | $\Theta(E)$ | $\Theta(E)$ | $\Theta(E)$ | $\Theta(E)$ |
+| Adjacency Lists | $\Theta(1)$ | $\Theta(1)$ to $\Theta(V)$ | $\Theta(V + E)$ | $\Theta(degree(v))$ | $\Theta(V + E)$ |
+
+
+------------------------------------------
+## Shortest Paths
+
+* Shortest Path Tree will always be a tree.
+
+* **Dijkstra's Algorithm**:  
+    > - Create a priority queue.
+    > - Add ss to the priority queue with priority 00. Add all other vertices to the priority queue with priority $\infty$
+    > - While the priority queue is not empty: pop a vertex out of the priority queue, and relax all of the edges going out from the vertex.  
+
+    Important note: we never relax edges that point to already visited vertices.
+
+* As long as the edges are all non-negative, Dijkstra's is guaranteed to be optimal.
+
+* Runtime of Dijkstra's Algorithm:  
+
+| | # operations | Cost per operation | Total cost| 
+| :------: | :------: | :------: | :------: | 
+| PQ add | V | $O(log(V))$ | $O(Vlog(V))$ |
+| PQ removeSmallest | V | $O(log(V))$ | $O(Vlog(V))$ |
+| PQ changPriority| E | $O(log(V))$ | $O(Elog(V))$ |
+
+* **$A^*$ Algorithm**:  instead of visiting vertices in order of distance from the source, we visit them in order of distance from the source $+ h(v)$, where $h(v)$ is some heuristic.
+
+
+------------------------------------------
+##
 
 
 
