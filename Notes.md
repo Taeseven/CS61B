@@ -730,7 +730,7 @@ The average depth determines the average-case runtime.
 
 * **Dijkstra's Algorithm**:  
     > - Create a priority queue.
-    > - Add ss to the priority queue with priority 00. Add all other vertices to the priority queue with priority $\infty$
+    > - Add s to the priority queue with priority 0. Add all other vertices to the priority queue with priority $\infty$
     > - While the priority queue is not empty: pop a vertex out of the priority queue, and relax all of the edges going out from the vertex.  
 
     Important note: we never relax edges that point to already visited vertices.
@@ -749,16 +749,45 @@ The average depth determines the average-case runtime.
 
 
 ------------------------------------------
+## Minimum Spanning Trees
+
+* **Minimum Spanning Trees**: Given an undirected graph, a spanning tree T is a subgraph of G, where T is connected, acyclic, includes all vertices. The minimum spanning tree is the spanning tree whose edge weights have the smallest sum. 
+
+* **Cut**: an assignment of a graph’s nodes to two non-empty sets (i.e. we assign every node to either set number one or set number two).
+
+* **crossing edge**: an edge which connects a node from one set to a node from the other set.  
+
+* **Cut Property**: given any cut, the minimum weight crossing edge is in the MST.
+
+* **Prim’s Algorithm**:  
+    > - Start from some arbitrary start node.  
+    > - Repeatedly add shortest edge that has one node inside the MST under construction.  
+    > - Repeat until $V-1$ edges.
+
+* Prims's vs. Dijkstra's:  
+    > - Dijkstra's considers "distance from the source", Prims's considers "distance from the tree".  
+
+* Runtime of Prim's Algorithm:  
+
+| | # operations | Cost per operation | Total cost| 
+| :------: | :------: | :------: | :------: | 
+| PQ add | V | $O(log(V))$ | $O(Vlog(V))$ |
+| PQ removeSmallest | V | $O(log(V))$ | $O(Vlog(V))$ |
+| PQ changPriority| $O(E)$| $O(log(V))$ | $O(Elog(V))$ |
+
+* **Kruskal’s Algorithm**:  
+    > - Consider edges in invreasing order of weights.  
+    > - Add edges to MST unless doing so creats a cycle.  
+    > - Repeat until $V-1$ edges.
+
+* Runtime of Kruskal's Algorithm:  
+
+| | # operations | Cost per operation | Total cost| 
+| :------: | :------: | :------: | :------: | 
+| Insert | E | $O(log(E))$ | $O(Elog(E))$ |
+| PQ removeSmallest | $O(E)$ | $O(log(E))$ | $O(Elog(E))$ |
+| union| $O(V)$| $O(log^*(V))$ | $O(Vlog^*(V))$ |
+| isConnected| $O(E)$| $O(log^*(V))$ | $O(Elog^*(V))$ |
+
+------------------------------------------
 ##
-
-
-
-
-
-
-
-
-
-
-
-
