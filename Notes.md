@@ -790,4 +790,31 @@ The average depth determines the average-case runtime.
 | isConnected| $O(E)$| $O(log^*(V))$ | $O(Elog^*(V))$ |
 
 ------------------------------------------
+## Reduction and Decomposition
+
+* **DAGs**: directed, acyclic (no cycles) graphs.
+
+* **Topological Sort**: an ordering of a DAG's vertices such that for every directed edge $u \rightarrow v$, u comes before v in the ordering.
+
+* For any topological ordering, you can redraw the graph so that the vertices are all in one line. Thus, topological sort is sometimes called a **linearization** of the graph.
+
+to be continued ...
+
+------------------------------------------
+## Dynamic Programming
+
+* DAG Shortest Path Tree: consists of first finding a topological ordering of the vertices, then relaxing all of the edges from each vertex in topological order. The runtime of this algorithm is $O(E + V)$.  
+
+* **Dynamic Programming**:  
+    > - Identify a collection of subproblems
+    > - Solve subproblems, working from smallest to largest
+    > - Use the answers from the smaller problems to help solve the larger ones
+
+* **Reduction**: Transforming a problem from one domain and solving it in that new domain.
+
+* 
+
+to be continued ...
+
+------------------------------------------
 ##
