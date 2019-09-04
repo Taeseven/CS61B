@@ -817,4 +817,49 @@ to be continued ...
 to be continued ...
 
 ------------------------------------------
-##
+## Sorting  
+
+### Selection Sort  
+> * Find smallest item.  
+> * Swap this item to the front and 'fix' it.  
+> * Repeat for unfixed itmes until all items are fixed.
+
+* Time complexity: $\Theta(n^2)$
+* Space complexity: $O(1)$
+
+### Heap Sort(In-place)
+> * use "bottom-up heapifivation' to convert the array into a heap
+> * Repeat N times: delect largest item; change unfixed items into a heap
+
+* Time complexity: $O(Nlog(N))$
+> * into the heap: $O(NlogN)$
+> * Selecting largest item: $\Theta(1)$
+> * Removing largest item: $O(logN)$
+
+* Space complexity: $O(1)$
+
+### Merge Sort
+> * Split items into 2 roughly even pieces.
+> * Merge sort each half(recursive)
+> * Merge the two sorted halves to form the final result.
+
+* Time complexity: $\Theta(NlogN)$
+* Space complexity: $\Theta(N)$
+
+### Insertion Sort
+> * Starting with an empty output sequence.
+> * Add each item from input, inserting into output at right point.
+> * Also can do in-place insertion sort.
+
+* On arrays with a small number of inversions, insertion sort is extremely fast.
+
+* For small arrays (N < 15 or so), insertion sort is fastest
+
+* Time complexity: $\Omega(N)$, $O(N^2)$
+
+### Shell's Sort
+
+to be finished...
+
+
+
